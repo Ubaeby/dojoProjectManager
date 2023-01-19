@@ -10,6 +10,11 @@ module.exports = {
         Project.create(req.body)
             .then(newProject => res.json(newProject))
             .catch(err => res.json({message: "Something went wrong creating a project", error: err}))
+    },
+    findOne: (req, res) => {
+        Project.findOne({_id:req.params.id})
+            .then(oneProject => res.json(oneProject))
+            .catch(err => console.log(err))
     }
 
 }

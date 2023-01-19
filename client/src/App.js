@@ -1,11 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import ProjectForm from './components/ProjectForm';
+import Main from './views/Main';
+import Details from './components/Details';
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <ProjectForm />
+    <div>
+      <BrowserRouter>
+      <Routes>
+        <Route element= {<Main />} path='/api/project' default/>
+        <Route element = {<Details />} path='api/project/:id' />
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }

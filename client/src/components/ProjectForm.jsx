@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from 'axios';
 
-const ProjectForm = () => {
+const ProjectForm = (props) => {
 
+    const {project, setProject} = props;
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
@@ -17,6 +18,7 @@ const ProjectForm = () => {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                setProject([...project, res.data])
             })
             .catch( err => 
                 console.log(err)
