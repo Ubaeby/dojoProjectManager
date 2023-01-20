@@ -22,7 +22,7 @@ const Details = props => {
             <p>{project.price}</p>
             <p>{project.description}</p>
 
-            <Link to={'/api/project'}>Go Home</Link>
+            <Link to={'/project'}>Go Home</Link>
         </div>
     )
 }

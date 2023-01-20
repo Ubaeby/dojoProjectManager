@@ -33,7 +33,7 @@ const ProjectForm = (props) => {
         <form onSubmit={onSubmitHandler}>
             <p>
                 <label>Title</label><br/>
-                <input type="text" value={title} onChange={ e => setTitle(e.target.value)}  />
+                <input type="text" value={title} placeholder="What's it called?" onChange={ e => setTitle(e.target.value)}  />
             </p>
             <p>
                 <label>Price</label><br/>
@@ -41,7 +41,7 @@ const ProjectForm = (props) => {
             </p>
             <p>
                 <label>Description</label><br/>
-                <textarea cols="30" rows="2" value={description} onChange={e => setDescription(e.target.value)}></textarea>
+                <textarea cols="30" rows="2" value={description} placeholder="how does it make you feel?" onChange={e => setDescription(e.target.value)}></textarea>
             </p>
             <button>Create Project!</button>
         </form>
