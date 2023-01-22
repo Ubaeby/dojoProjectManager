@@ -23,6 +23,7 @@ const Details = props => {
             <p>{project.description}</p>
 
             <Link to={'/project'}>Go Home</Link>
+            <Link to={'/project/edit/' + id}>Edit</Link>
         </div>
     )
 }
