@@ -7,12 +7,11 @@ const ProjectForm = (props) => {
     const [price, setPrice] = useState(initialPrice);
     const [description, setDescription] = useState(initialDescription);
 
+    
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        onSubmitProp({title, price, description})
-        setTitle("");
-        setPrice("");
-        setDescription("");
+        onSubmitProp({title: title.charAt(0).toUpperCase() + title.substring(1, title.length - 0), price, description})
     }
 
     return(

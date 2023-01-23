@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Main = () => {
     const [projectList, setProjectList] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     useEffect( () => {
         axios.get('http://localhost:8000/api/project')
@@ -28,13 +29,26 @@ const Main = () => {
                 console.log(res.data)
                 setProjectList([...projectList, res.data])
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                const errorRes = err.response.data.error.errors;
+                const errorArr = [];
+                for (const key of Object.keys(errorRes)) {
+                    errorArr.push(errorRes[key].message)
+                }
+                setErrors(errorArr);
+            });
     }
 
     return (
         <div>
             <h1>Project Creatorinator</h1>
-            <ProjectForm onSubmitProp = {createProject} initialTitle = "" intialPrice = "" intialDescription =""/>
+            <div>
+            { errors.length > 0 && errors.map( (error, i) => (
+                <p key={i}> {error} </p>
+                ))}
+            </div>
+            <ProjectForm errors = {errors} onSubmitProp = {createProject} initialTitle = "" intialPrice = "" intialDescription =""/>
             <hr />
             <h2>All Products:</h2>
             <ProjectList projectList = {projectList} removeProject = { removeProject }/>

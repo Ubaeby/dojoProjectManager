@@ -4,23 +4,23 @@ module.exports = {
     findAll: (req, res) => {
         Project.find()
             .then(allProjects => res.json(allProjects))
-            .catch(err => res.json({message: "Something went wrong in getting all projects", error: err}))
+            .catch(err => res.status(400).json({message: "Something went wrong in getting all projects", error: err}))
     },
     createProject: (req, res) => {
         Project.create(req.body)
             .then(newProject => res.json(newProject))
-            .catch(err => res.json({message: "Something went wrong creating a project", error: err}))
+            .catch(err => res.status(400).json({message: "Something went wrong creating a project", error: err}))
     },
     findOne: (req, res) => {
         Project.findOne({_id:req.params.id})
             .then(oneProject => res.json(oneProject))
-            .catch(err => console.log(err))
+            .catch(err => res.status(400).json(err))
     },
 
     updateProject: (req, res) => {
         Project.findByIdAndUpdate((req.params.id), req.body, {new:true, runValidators:true})
             .then(updatedPerson => res.json(updatedPerson))
-            .catch(err => res.json(err))
+            .catch(err => res.status(400).json({message: "Something went wrong updating a project", error: err}))
     },
 
     deleteProject: (req,res) => {
