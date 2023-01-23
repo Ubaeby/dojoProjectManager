@@ -22,8 +22,8 @@ const Details = props => {
             <p>{project.price}</p>
             <p>{project.description}</p>
 
-            <Link to={'/project'}>Go Home</Link>
-            <Link to={'/project/edit/' + id}>Edit</Link>
+            <Link to={'/'}>Go Home</Link>
+            <Link to={'/edit/' + id}>Edit</Link>
         </div>
     )
 }

@@ -12,9 +12,9 @@ const ProjectList = props => {
                 <div key={i} >
                     <Card key={i} elevation={20} style={{ margin: "20px" }}>
                         <CardContent>
-                            <Link to={`/project/${p._id}`}>{p.title} </Link>
+                            <Link to={`/${p._id}`}>{p.title} </Link>
                             <br />
-                            <Link to={`/project/edit/${p._id}`}>Edit</Link>
+                            <Link to={`/edit/${p._id}`}>Edit</Link>
                             <DeleteButton projectId={p._id} successCallBack={() => removeProject(p._id)} />
                             <br />
                         </CardContent>

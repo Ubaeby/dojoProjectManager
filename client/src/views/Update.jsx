@@ -25,7 +25,7 @@ const Update = props => {
         axios.put(`http://localhost:8000/api/project/${id}`, projectParam)
             .then(res => {
                 console.log(res);
-                navi('/project')
+                navi('/')
             })
             .catch(err => {
                 console.log(err)
@@ -51,7 +51,7 @@ const Update = props => {
                 loaded && (
                     <>
                         <ProjectForm onSubmitProp={updateProject} initialTitle={project.title} initialPrice={project.price} initialDescription={project.description} />
-                        <DeleteButton projectId={project._id} successCallBack={() => navi('/project')} />
+                        <DeleteButton projectId={project._id} successCallBack={() => navi('/')} />
                     </>
                 )
             }
